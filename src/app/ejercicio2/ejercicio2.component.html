@@ -1,0 +1,102 @@
+<div class="container">
+    <h1>Determinación del Estado del Alumno</h1>
+  
+    <div>
+      <label>Nombre:</label>
+      <input type="text" (input)="actualizarNombre($event)" placeholder="Ingrese el nombre del alumno"/>
+    </div>
+  
+    <div>
+      <label>Calificación 1:</label>
+      <input type="number" (input)="actualizarCalificacion(0, $event)" />
+    </div>
+  
+    <div>
+      <label>Calificación 2:</label>
+      <input type="number" (input)="actualizarCalificacion(1, $event)" />
+    </div>
+  
+    <div>
+      <label>Calificación 3:</label>
+      <input type="number" (input)="actualizarCalificacion(2, $event)" />
+    </div>
+  
+    <button class="btn btn-primary" (click)="calcularEstado()">
+      Calcular Estado
+    </button>
+  
+    <!-- Mostrar el estado del alumno solo si 'estado' tiene un valor -->
+    <div *ngIf="estado">
+      <h2>Estado del Alumno: {{ estado }}</h2>
+    </div>
+  </div>
+<style>
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para los títulos */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Estilos para los elementos de formulario */
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para el botón */
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para el estado del alumno */
+  h2 {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+  }
+</style>
+  
+  
