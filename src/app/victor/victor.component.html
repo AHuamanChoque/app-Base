@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-header">
+      EJERCICIO 1
+    </div>
+
+    <P>
+    <div>
+        <P>En un almacén se rebaja 10% del precio al cliente si compra mayor a 20 artículos y 5% si compra hasta 20 artículos, pero más de 10. 
+        Ingrese el precio unitario de un artículo y la cantidad adquirida y muestre lo que debe pagar el cliente.
+        </P>
+    </div>
+
+    <div class="card-body">
+
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" [(ngModel)]="victor.precio"
+            id="txttalla" placeholder="name@example.com">
+            <label for="txttalla">Ingrese el precio del Producto</label>
+          </div>        
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" [(ngModel)]="victor.cantidad"
+            id="txtpeso" placeholder="name@example.com">
+            <label for="txtpeso">Ingrese la cantidad a comprar</label>
+        </div>
+        
+        <button type="button" (click)="cacularCantidad()" 
+            class="btn btn-primary">CALCULAR</button>
+        @if (mostrarmsj) {
+            <br>
+            <br>
+            <div class="alert alert-primary" role="alert">
+                {{texto}}
+            </div>
+        }
+
+        <hr />
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cantidad </th>
+                <th scope="col">Precio</th>
+                <th scope="col">Costo Compra</th>
+                <th scope="col">Descuento</th>  
+                <th scope="col">% Descuento</th>        
+                <th scope="col">Costo Total NETO</th>  
+              </tr>
+            </thead>
+            <tbody>
+                @for (itemCant of cantidadesList ; track $index) {
+                    <tr>
+                        <td>{{itemCant.id}}</td>
+                        <td>{{itemCant.cantidad}}</td>
+                        <td>{{itemCant.precio}}</td>
+                        <td>{{itemCant.costocompra}}</td>
+                        <td>{{itemCant.descuento}}</td>
+                        <td>{{itemCant.porcentaje}}</td>
+                        <td>{{itemCant.total}}</td>
+                      </tr>              
+                }
+            </tbody>
+          </table>
+        
+    </div>
+  </div>
